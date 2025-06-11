@@ -15,9 +15,10 @@
             <table class="table table-hover table-bordered align-middle">
                 <thead class="table-dark">
                     <tr>
-                        <th>Apellido</th>
                         <th>Nombre</th>
-                        <th>Cédula</th>
+                        <th>Descripción</th>
+                        <th>Categoria</th>
+                        <th>imagen</th>
                         <th>Latitud</th>
                         <th>Longitud</th>
                         <th class="text-center">Acciones</th>

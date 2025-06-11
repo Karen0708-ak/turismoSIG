@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('contenido')
 <br>
-<h1>Mapa de Clientes</h1>
+<h1>son uno pavois todos en este cuarto</h1>
 <br>
 <div id="mapa-clientes" style="border:2px solid black; height:500px; width:100%;">
 </div>
