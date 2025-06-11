@@ -7,8 +7,8 @@ use App\Http\Controllers\LugaresController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/lugares/mapa',[LugaresController::class,'mapa']);
+Route::get('/Lugares/mapa',[LugaresController::class,'mapa']);
 //Habilitando acceso al controlador
-Route::resource('lugares',LugaresController::class);
+Route::resource('Lugares',LugaresController::class);
 
 

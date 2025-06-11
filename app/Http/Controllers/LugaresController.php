@@ -14,7 +14,7 @@ class LugaresController extends Controller
     {
         //
         $lugares=Lugares::all();
-        return view('lugares.index',compact('lugares'));
+        return view('Lugares.index',compact('Lugares'));
     }
 
     /**
