@@ -30,7 +30,18 @@ class LugaresController extends Controller
     public function store(Request $request)
     {
         //
-        
+        $datos=[
+            'nombre'=> $request->nombre,
+            'descripcion'=> $request->descripcion,
+            'categoria'=> $request->categoria,
+            'imagen'=> $request->imagen,
+            'latitud'=> $request->latitud,
+            'longitud'=> $request->longitud
+        ];
+        Cliente::create($datos);
+         // Pasar mensaje a la vista con nombre 'message'
+        return redirect()->route('clientes.index')->with('message', 'Cliente creado exitosamente');
+    
     }
 
     /**

@@ -16,7 +16,7 @@ class Lugares extends Model
     'descripcion',
     'categoria',
     'imagen',
-    'latutud',
+    'latitud',
     'longitud',
 ];
 }
