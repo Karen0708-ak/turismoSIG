@@ -47,7 +47,9 @@
         .colorf{
             color:black;
         }
+        
     </style>
+    
     </head>
 
     <body>
@@ -140,7 +142,8 @@
                 </div>
             </div>
             <!-- Contenido dinámico encima del carrusel -->
-            <div class="position-absolute top-50 start-50 translate-middle w-75 text-center text-white z-3" style=" background-color: rgba(0, 0, 0, 0.7); padding: 20px; border-radius: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+             <br><br><br><br><br>
+            <div class="position-absolute top-50 start-50 translate-middle w-75 text-center text-white z-3" style=" background-color: rgba(49, 48, 48, 0.7); padding: 20px; border-radius: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
                 @yield('contenido')
             </div>
         </div>
