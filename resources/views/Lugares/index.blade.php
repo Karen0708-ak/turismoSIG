@@ -38,7 +38,7 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table table-hover" id="tbl_lugares">
             <thead class="table-dark">
                 <tr>
                     <th>Nombre</th>
@@ -90,4 +90,21 @@
         @endif
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        let table = new DataTable('#tbl_lugares', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.3.1/i18n/es-ES.json'
+            },
+            dom: 'Bfrtip', 
+            buttons: [
+                'copy',
+                'csv',
+                'excel',
+                'pdf',
+                'print'
+            ]
+        });
+    });
+</script>
 @endsection
