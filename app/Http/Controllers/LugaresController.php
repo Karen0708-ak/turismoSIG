@@ -104,7 +104,7 @@ class LugaresController extends Controller
 
         $lugar->update($data);
 
-        return redirect()->route('Lugares.index')->with('success', 'Lugar actualizado exitosamente');
+        return redirect()->route('Lugares.index')->with('message', 'Lugar actualizado exitosamente');
     }
 
     public function destroy($id)
