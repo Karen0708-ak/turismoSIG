@@ -53,7 +53,7 @@
                     <td>{{ $lugar->nombre }}</td>
                     <td>{{ Str::limit($lugar->descripcion, 50) }}</td>
                     <td>{{ $lugar->categoria }}</td>
-                    < <td>
+                    <td>
                         @if($lugar->imagen)
                             <img src="{{ asset('storage/' . $lugar->imagen) }}" width="100">
                         @else

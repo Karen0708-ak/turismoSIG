@@ -21,24 +21,25 @@
             <div class="mb-3">
                 <label for="categoria" class="form-label"><b>Categoría:</b></label>
                 <select class="form-select" name="categoria" id="categoria" required>
-                    <option value="Mirador" {{ $lugar->categoria == 'mirador' ? 'selected' : '' }}>Mirador</option>
-                    <option value="Museo" {{ $lugar->categoria == 'museo' ? 'selected' : '' }}>Museo</option>
-                    <option value="Parque" {{ $lugar->categoria == 'parque' ? 'selected' : '' }}>Parque</option>
-                    <option value="Iglesia" {{ $lugar->categoria == 'iglesia' ? 'selected' : '' }}>Iglesia</option>
-                    <option value="Otro" {{ $lugar->categoria == 'otro' ? 'selected' : '' }}>Otro</option>
+                    <option value="Mirador" {{ $lugar->categoria == 'Mirador' ? 'selected' : '' }}>Mirador</option>
+                    <option value="Museo" {{ $lugar->categoria == 'Museo' ? 'selected' : '' }}>Museo</option>
+                    <option value="Parque" {{ $lugar->categoria == 'Parque' ? 'selected' : '' }}>Parque</option>
+                    <option value="Iglesia" {{ $lugar->categoria == 'Iglesia' ? 'selected' : '' }}>Iglesia</option>
+                    <option value="Otro" {{ $lugar->categoria == 'Otro' ? 'selected' : '' }}>Otro</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="imagen" class="form-label"><b>Imagen del lugar:</b></label>
                 <input type="file" class="form-control" name="imagen" id="imagen" accept="image/*">
-                @if($lugar->imagen)
+
+                @isset($lugar->imagen)
                     <div class="mt-2">
-                        <img src="{{ $lugar->imagen }}" alt="Imagen actual" style="max-width: 200px;">
+                        <img src="{{ asset('storage/' . $lugar->imagen) }}" alt="Imagen actual" style="max-width: 200px;">
                         <p class="text-muted">Imagen actual</p>
                     </div>
-                @endif
+                @endisset
             </div>
-
+                
             <div class="mb-3">
                 <label for="latitud" class="form-label"><b>Latitud:</b></label>
                 <input type="text" class="form-control" name="latitud" id="latitud" value="{{ old('latitud', $lugar->latitud) }}" required readonly>

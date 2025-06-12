@@ -56,7 +56,8 @@ class LugaresController extends Controller
         ];
         Lugares::create($datos);
          // Pasar mensaje a la vista con nombre 'message'
-        return redirect()->route('Lugares.index')->with('message', 'Lugar creado exitosamente');
+        return redirect()->route('Lugares.index')->with('message', 'Lugar creado
+        exitosamente');
     }
 
     public function show($id)
@@ -74,37 +75,30 @@ class LugaresController extends Controller
     public function update(Request $request, $id)
     {
         $lugar = Lugares::findOrFail($id);
-        $request->validate([
-            'nombre' => 'required|string|max:255',
-            'descripcion' => 'required|string',
-            'categoria' => 'required|string',
-            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'latitud' => 'required|numeric',
-            'longitud' => 'required|numeric'
-        ]);
 
-        $data = [
-            'nombre' => $request->nombre,
-            'descripcion' => $request->descripcion,
-            'categoria' => $request->categoria,
-            'latitud' => $request->latitud,
-            'longitud' => $request->longitud
-        ];
-
+        // Subir nueva imagen si viene en el request
         if ($request->hasFile('imagen')) {
-            // Eliminar imagen anterior si existe
-            if ($lugar->imagen) {
-                $oldImage = str_replace('/storage', 'public', $lugar->imagen);
-                Storage::delete($oldImage);
+            // Eliminar la imagen anterior si existe
+            if ($lugar->imagen && Storage::exists('public/' . $lugar->imagen)) {
+                Storage::delete('public/' . $lugar->imagen);
             }
-            
-            $imagenPath = $request->file('imagen')->store('public/lugares');
-            $data['imagen'] = Storage::url($imagenPath);
+    
+            // Guardar la nueva imagen
+            $imagenPath = $request->file('imagen')->store('imagenes', 'public');
+            $lugar->imagen = $imagenPath; // <<---- AQUÍ cambió
         }
+        // Datos recibidos para actualizar
+        $lugar->nombre = $request->nombre;
+        $lugar->descripcion = $request->descripcion;
+        $lugar->categoria = $request->categoria;
+        $lugar->latitud = $request->latitud;
+        $lugar->longitud = $request->longitud;
 
-        $lugar->update($data);
+        $lugar->save();
 
+        // Redirigir con mensaje
         return redirect()->route('Lugares.index')->with('message', 'Lugar actualizado exitosamente');
+
     }
 
     public function destroy($id)
