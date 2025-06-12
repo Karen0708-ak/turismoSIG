@@ -4,76 +4,140 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lugares;
+use Illuminate\Support\Facades\Storage;
 
 class LugaresController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-        $lugares=Lugares::all();
-        return view('Lugares.index',compact('Lugares'));
+    public function index(Request $request)
+{
+    $query = Lugares::query();
+
+    if ($request->has('search') && $request->search != '') {
+        $query->where('nombre', 'like', '%' . $request->search . '%');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    if ($request->has('categoria') && $request->categoria != '') {
+        $query->where('categoria', $request->categoria);
+    }
+
+    $lugares = $query->paginate(10); // ← Paginación
+    $categorias = Lugares::select('categoria')->distinct()->get();
+
+    return view('Lugares.index', compact('lugares', 'categorias'));
+}
+
+    public function mapa()
+    {
+        $lugares = Lugares::all();
+        $categorias = Lugares::select('categoria')->distinct()->get();
+        return view('Lugares.mapa', compact('lugares', 'categorias'));
+    }
+
     public function create()
     {
-        //
+        return view('Lugares.nuevo');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-        $datos=[
-            'nombre'=> $request->nombre,
-            'descripcion'=> $request->descripcion,
-            'categoria'=> $request->categoria,
-            'imagen'=> $request->imagen,
-            'latitud'=> $request->latitud,
-            'longitud'=> $request->longitud
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'required|string',
+            'categoria' => 'required|string',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'latitud' => 'required|numeric',
+            'longitud' => 'required|numeric'
+        ]);
+
+        $imagenPath = $request->file('imagen')->store('public/lugares');
+        $imagenUrl = Storage::url($imagenPath);
+
+        Lugares::create([
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'categoria' => $request->categoria,
+            'imagen' => $imagenUrl,
+            'latitud' => $request->latitud,
+            'longitud' => $request->longitud
+        ]);
+
+        return redirect()->route('Lugares.index')->with('success', 'Lugar creado exitosamente');
+    }
+
+    public function show($id)
+    {
+        $lugar = Lugares::findOrFail($id);
+        return view('Lugares.ver', compact('lugar'));
+    }
+
+    public function edit($id)
+    {
+        $lugar = Lugares::findOrFail($id);
+        return view('Lugares.editar', compact('lugar'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $lugar = Lugares::findOrFail($id);
+        
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'required|string',
+            'categoria' => 'required|string',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'latitud' => 'required|numeric',
+            'longitud' => 'required|numeric'
+        ]);
+
+        $data = [
+            'nombre' => $request->nombre,
+            'descripcion' => $request->descripcion,
+            'categoria' => $request->categoria,
+            'latitud' => $request->latitud,
+            'longitud' => $request->longitud
         ];
-        Cliente::create($datos);
-         // Pasar mensaje a la vista con nombre 'message'
-        return redirect()->route('clientes.index')->with('message', 'Cliente creado exitosamente');
-    
+
+        if ($request->hasFile('imagen')) {
+            // Eliminar imagen anterior si existe
+            if ($lugar->imagen) {
+                $oldImage = str_replace('/storage', 'public', $lugar->imagen);
+                Storage::delete($oldImage);
+            }
+            
+            $imagenPath = $request->file('imagen')->store('public/lugares');
+            $data['imagen'] = Storage::url($imagenPath);
+        }
+
+        $lugar->update($data);
+
+        return redirect()->route('Lugares.index')->with('success', 'Lugar actualizado exitosamente');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function destroy($id)
     {
-        //
+        $lugar = Lugares::findOrFail($id);
+        
+        // Eliminar imagen asociada
+        if ($lugar->imagen) {
+            $oldImage = str_replace('/storage', 'public', $lugar->imagen);
+            Storage::delete($oldImage);
+        }
+        
+        $lugar->delete();
+        
+        return redirect()->route('Lugares.index')->with('success', 'Lugar eliminado exitosamente');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function filtrar(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $categoria = $request->categoria;
+        
+        if ($categoria == 'todos') {
+            $lugares = Lugares::all();
+        } else {
+            $lugares = Lugares::where('categoria', $categoria)->get();
+        }
+        
+        return response()->json($lugares);
     }
 }

@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 bg-black p-4 rounded text-white">
-        <form action="{{ route('lugares.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('Lugares.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <h1>Registrar Nuevo Lugar</h1>
 
@@ -28,7 +28,7 @@
             <div id="mapa_cliente" style="border:1px solid black; height:350px; width:100%"></div><br>
 
             <button class='btn btn-success' type="submit">Guardar</button>
-            <a class="btn btn-danger" href="{{ route('lugares.index') }}">Cancelar</a>
+            <a class="btn btn-danger" href="{{ route('Lugares.index') }}">Cancelar</a>
         </form>
     </div>
     <div class="col-md-3"></div>
