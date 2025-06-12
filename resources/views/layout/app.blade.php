@@ -34,6 +34,11 @@
 
         <!-- Template Stylesheet -->
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <style>
+        .colorf{
+            color:black;
+        }
+    </style>
     </head>
 
     <body>
@@ -278,4 +283,17 @@
         <!-- Template Javascript -->
         <script src="{{asset('js/main.js')}}"></script>
     </body>
+
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+
+@if(session('message'))
+    <script>
+        Swal.fire({
+            title: 'CONFIRMACIÓN',
+            text: @json(session('message')),
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
+    </script>
+@endif
 </html>

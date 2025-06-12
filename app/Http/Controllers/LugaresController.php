@@ -40,28 +40,18 @@ class LugaresController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'nombre' => 'required|string|max:255',
-            'descripcion' => 'required|string',
-            'categoria' => 'required|string',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'latitud' => 'required|numeric',
-            'longitud' => 'required|numeric'
-        ]);
-
-        $imagenPath = $request->file('imagen')->store('public/lugares');
-        $imagenUrl = Storage::url($imagenPath);
-
-        Lugares::create([
+        //Capturar valores u almacenarlos en la BDD
+        $datos=[
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
             'categoria' => $request->categoria,
             'imagen' => $imagenUrl,
             'latitud' => $request->latitud,
             'longitud' => $request->longitud
-        ]);
-
-        return redirect()->route('Lugares.index')->with('success', 'Lugar creado exitosamente');
+        ];
+        Lugares::create($datos);
+         // Pasar mensaje a la vista con nombre 'message'
+        return redirect()->route('Lugares.index')->with('message', 'Cliente creado exitosamente');
     }
 
     public function show($id)
@@ -79,7 +69,6 @@ class LugaresController extends Controller
     public function update(Request $request, $id)
     {
         $lugar = Lugares::findOrFail($id);
-        
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',

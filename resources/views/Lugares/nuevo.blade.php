@@ -7,22 +7,22 @@
             @csrf
             <h1>Registrar Un Nuevo Lugar</h1>
 
-            <label for="nombre"><b>Nombre:</b></label>
+            <label for="nombre" class="colorf"><b>Nombre:</b></label>
             <input class="form-control" type="text" name="nombre" id="nombre" required><br>
 
-            <label for="descripcion"><b>Descripción:</b></label>
+            <label for="descripcion" class="colorf" ><b>Descripción:</b></label>
             <input class="form-control" type="text" name="descripcion" id="descripcion" required><br>
 
-            <label for="categoria"><b>Categoría:</b></label>
+            <label for="categoria" class="colorf" ><b>Categoría:</b></label>
             <input class="form-control" type="text" name="categoria" id="categoria" required><br>
 
-            <label for="imagen"><b>Imagen:</b></label>
+            <label for="imagen" class="colorf" ><b>Imagen:</b></label>
             <input class="form-control" type="file" name="imagen" id="imagen" accept="image/*"><br>
 
-            <label for="latitud"><b>Latitud:</b></label>
+            <label for="latitud" class="colorf" ><b>Latitud:</b></label>
             <input class="form-control" readonly type="text" name="latitud" id="latitud"><br>
 
-            <label for="longitud"><b>Longitud:</b></label>
+            <label for="longitud" class="colorf" ><b>Longitud:</b></label>
             <input class="form-control" readonly type="text" name="longitud" id="longitud"><br>
 
             <div id="mapa_cliente" style="border:1px solid black; height:350px; width:100%"></div><br>
