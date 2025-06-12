@@ -73,7 +73,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" class="text-center">No hay lugares registrados</td>
+                    <td colspan="6" class="text-center">No hay turisticos lugares registrados</td>
                 </tr>
                 @endforelse
             </tbody>
