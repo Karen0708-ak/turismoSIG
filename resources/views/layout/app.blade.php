@@ -7,7 +7,6 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
-
         
         <!--IMportando sweetalert2-->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -127,55 +126,24 @@
                     <a href="" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</a>
                 </div>
             </nav>
-
+        <!-- Carousel Container -->
+        <div class="container-fluid position-relative p-0">
             <!-- Carousel Start -->
-            <div class="carousel-header">
-                <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
-                        <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
-                        <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <img src="img/carousel-2.jpg" class="img-fluid" alt="Image">
-                            <div class="carousel-caption">
-                                <div class="p-3" style="max-width: 900px;">
-                                    <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">EXPLORA EL MUNDO</h4>
-                                    <h1 class="display-2 text-capitalize text-white mb-4">ENCUENTRA TU LUGAR PERFECTO PARA EXPLORAR</h1>
-                                    <p class="mb-5 fs-5">Este es un deber el ding Rene
-                                    </p>
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <a class="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" href="#">Descrubrelo ahora</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner position-relative">
+                    <div class="carousel-item active">
+                        <img src="img/carousel-2.jpg" class="img-fluid w-100" alt="...">
+                        <!-- Filtro oscuro encima de la imagen -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100" 
+                            style="background: rgba(0,0,0,0.5); pointer-events: none;"></div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon btn bg-primary" aria-hidden="false"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                        <span class="carousel-control-next-icon btn bg-primary" aria-hidden="false"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
-            <!-- Carousel End -->
-        </div>
-        <div class="container-fluid search-bar position-relative" style="top: -50%; transform: translateY(-50%);">
-            <div class="container">
-                <div class="position-relative rounded-pill w-100 mx-auto p-5" style="background: rgba(19, 53, 123, 0.8);">
-                    <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Ej.: Cotopaxi">
-                    <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute me-2" style="top: 50%; right: 46px; transform: translateY(-50%);">Buscar</button>
-                </div>
+            <!-- Contenido dinámico encima del carrusel -->
+            <div class="position-absolute top-50 start-50 translate-middle w-75 text-center text-white z-3" style=" background-color: rgba(0, 0, 0, 0.7); padding: 20px; border-radius: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+                @yield('contenido')
             </div>
         </div>
-        <!-- Navbar & Hero End -->
-        <main class="flex-grow-1 container py-4">
-            @yield('contenido')
-        </main>
         <!-- Footer Start -->
         <div class="container-fluid footer py-5">
             <div class="container py-5">

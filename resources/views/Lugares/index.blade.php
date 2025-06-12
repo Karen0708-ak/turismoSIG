@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Puntos de Interés Turísticos</h1>
+        <h1 style="color:white;">Puntos de Interés Turísticos</h1>
         <div>
             <a href="{{ url ('Lugares/mapa') }}" class="btn btn-primary">
                 Ver mapa Global
@@ -49,7 +49,7 @@
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="color:white;">
                 @forelse($lugares as $lugar)
                 <tr>
                     <td>{{ $lugar->nombre }}</td>
