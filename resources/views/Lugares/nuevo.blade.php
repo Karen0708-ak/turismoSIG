@@ -5,7 +5,7 @@
     <div class="col-md-6 bg-black p-4 rounded text-white">
         <form action="{{ route('Lugares.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <h1>Registrar Nuevo Lugar</h1>
+            <h1>Registrar Un Nuevo Lugar</h1>
 
             <label for="nombre"><b>Nombre:</b></label>
             <input class="form-control" type="text" name="nombre" id="nombre" required><br>
