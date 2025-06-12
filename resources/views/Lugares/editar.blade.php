@@ -30,7 +30,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="imagen" class="form-label"><b>Imagen:</b></label>
+                <label for="imagen" class="form-label"><b>Imagen del lugar:</b></label>
                 <input type="file" class="form-control" name="imagen" id="imagen" accept="image/*">
                 @if($lugar->imagen)
                     <div class="mt-2">
