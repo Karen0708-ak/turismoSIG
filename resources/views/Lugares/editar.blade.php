@@ -9,12 +9,12 @@
             <h1>Editar Un Lugar Turístico</h1>
 
             <div class="mb-3">
-                <label for="nombre" class="form-label"><b>Nombre:</b></label>
+                <label for="nombre" class="form-label"><b>Nombre del lugar:</b></label>
                 <input type="text" class="form-control" name="nombre" id="nombre" value="{{ old('nombre', $lugar->nombre) }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="descripcion" class="form-label"><b>Descripción:</b></label>
+                <label for="descripcion" class="form-label"><b>Descripción del lugar:</b></label>
                 <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required>{{ old('descripcion', $lugar->descripcion) }}</textarea>
             </div>
 
