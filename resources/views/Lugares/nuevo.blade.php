@@ -87,6 +87,7 @@
             document.getElementById("latitud").value = this.getPosition().lat();
             document.getElementById("longitud").value = this.getPosition().lng();
         });
+        window.initMap = initMap;
     }
 </script>
 
