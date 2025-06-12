@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
                 <label for="imagen" class="form-label"><b>Imagen del lugar:</b></label>
-                <input type="file" class="form-control" name="imagen" id="imagen" accept="image/*">
+                <input type="file" class="form-control" name="imagen" id="imagen">
 
                 @isset($lugar->imagen)
                     <div class="mt-2">
@@ -94,5 +94,14 @@
             document.getElementById("longitud").value = newPosition.lng();
         });
     }
+</script>
+<script>
+    $("#imagen").fileinput({
+            language: "es",
+            allowedFileExtensions: ["png|jpg|jpeg"],
+            showCaption: false,
+            dropZoneEnabled: true,
+            showClose: false
+    });
 </script>
 @endsection

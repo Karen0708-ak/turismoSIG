@@ -27,7 +27,7 @@
             <br>
 
             <label for="imagen" class="colorf" ><b>Imagen:</b></label>
-            <input class="form-control" type="file" name="imagen" id="imagen" accept="image/*"><br>
+            <input class="form-control" type="file" name="imagen" id="imagen" ><br>
 
             <label for="latitud" class="colorf" ><b>Latitud:</b></label>
             <input class="form-control" readonly type="text" name="latitud" id="latitud"><br>
@@ -63,5 +63,14 @@
             document.getElementById("longitud").value = this.getPosition().lng();
         });
     }
+</script>
+<script>
+    $("#imagen").fileinput({
+            language: "es",
+            allowedFileExtensions: ["png|jpg|jpeg"],
+            showCaption: false,
+            dropZoneEnabled: true,
+            showClose: false
+    });
 </script>
 @endsection

@@ -27,9 +27,19 @@
         <!-- Libraries Stylesheet -->
         <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
         <link href="{{asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+       <!-- jQuery (obligatorio) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+        <!-- Bootstrap JS (si usas Bootstrap 5 puedes omitir si ya está incluido) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Customized Bootstrap Stylesheet -->
+        <!-- FileInput JS y CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/css/fileinput.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/js/fileinput.min.js"></script>
+
+        <!-- FileInput idioma español -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/js/locales/es.min.js"></script>
+
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
         <!-- Template Stylesheet -->
