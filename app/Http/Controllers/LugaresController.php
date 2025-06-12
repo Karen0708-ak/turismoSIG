@@ -20,7 +20,7 @@ class LugaresController extends Controller
         $query->where('categoria', $request->categoria);
     }
 
-    $lugares = $query->paginate(10); // ← Paginación
+    $lugares = $query->paginate(10); 
     $categorias = Lugares::select('categoria')->distinct()->get();
 
     return view('Lugares.index', compact('lugares', 'categorias'));
@@ -28,9 +28,8 @@ class LugaresController extends Controller
 
     public function mapa()
     {
-        $lugares = Lugares::all();
-        $categorias = Lugares::select('categoria')->distinct()->get();
-        return view('Lugares.mapa', compact('lugares', 'categorias'));
+        $lugar = Lugares::all(); 
+        return view('Lugares.mapa', compact('lugar'));
     }
 
     public function create()

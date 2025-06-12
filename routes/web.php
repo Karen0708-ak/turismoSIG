@@ -7,8 +7,9 @@ Route::get('/', function () {
     return redirect()->route('Lugares.index');
 });
 
+Route::get('/Lugares/mapa',[LugaresController::class,'mapa']);
+
 Route::resource('Lugares', LugaresController::class);
 
-Route::get('/Lugares/mapa', [LugaresController::class, 'mapa'])->name('Lugares.mapa');
 
 Route::get('/Lugares/filtrar', [LugaresController::class, 'filtrar'])->name('Lugares.filtrar');
