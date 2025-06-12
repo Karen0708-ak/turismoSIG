@@ -28,7 +28,7 @@
                         </select>
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+                        <button type="submit" class="btn btn-primary w-100">Filtrar por:</button>
                     </div>
                 </div>
             </form>
