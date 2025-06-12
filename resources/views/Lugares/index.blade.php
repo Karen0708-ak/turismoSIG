@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Puntos de Interés Turístico</h1>
+        <h1>Puntos de Interés Turísticos</h1>
         <div>
             <a href="{{ route('Lugares.mapa') }}" class="btn btn-primary">Ver Mapa</a>
             <a href="{{ route('Lugares.create') }}" class="btn btn-success">Agregar Nuevo Lugar</a>
