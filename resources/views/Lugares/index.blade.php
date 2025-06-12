@@ -6,7 +6,7 @@
         <h1>Puntos de Interés Turístico</h1>
         <div>
             <a href="{{ route('Lugares.mapa') }}" class="btn btn-primary">Ver Mapa</a>
-            <a href="{{ route('Lugares.create') }}" class="btn btn-success">Agregar Nuevo</a>
+            <a href="{{ route('Lugares.create') }}" class="btn btn-success">Agregar Nuevo Lugar</a>
         </div>
     </div>
 
