@@ -132,7 +132,7 @@
             <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner position-relative">
                     <div class="carousel-item active">
-                        <img src="img/carousel-2.jpg" class="img-fluid w-100" alt="...">
+                        <img src="{{ asset('img/carousel-2.jpg') }}" class="img-fluid w-100" alt="...">
                         <!-- Filtro oscuro encima de la imagen -->
                         <div class="position-absolute top-0 start-0 w-100 h-100" 
                             style="background: rgba(0,0,0,0.5); pointer-events: none;"></div>
