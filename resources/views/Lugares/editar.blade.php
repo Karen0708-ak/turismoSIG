@@ -6,7 +6,7 @@
         <form action="{{ route('Lugares.update', $lugar->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <h1>Editar Lugar Turístico</h1>
+            <h1>Editar Un Lugar Turístico</h1>
 
             <div class="mb-3">
                 <label for="nombre" class="form-label"><b>Nombre:</b></label>
