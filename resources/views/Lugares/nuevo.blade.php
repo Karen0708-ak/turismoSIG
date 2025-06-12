@@ -69,29 +69,41 @@
 </div>
 
 <!-- Scripts -->
+<!-- Scripts -->
 <script type="text/javascript">
     function initMap() {
-        var latitud_longitud = new google.maps.LatLng(-0.9374805, -78.6161327);
-        var mapa = new google.maps.Map(document.getElementById('mapa_cliente'), {
-            center: latitud_longitud,
+        const centro = { lat: -0.9374805, lng: -78.6161327 };
+
+        const mapa = new google.maps.Map(document.getElementById('mapa_cliente'), {
+            center: centro,
             zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-        var marcador = new google.maps.Marker({
-            position: latitud_longitud,
+
+        const marcador = new google.maps.Marker({
+            position: centro,
             map: mapa,
             title: "Seleccione la dirección",
             draggable: true
         });
+
         google.maps.event.addListener(marcador, 'dragend', function (event) {
             document.getElementById("latitud").value = this.getPosition().lat();
             document.getElementById("longitud").value = this.getPosition().lng();
         });
-        window.initMap = initMap;
     }
+
+    // Esta línea hace que el mapa se cargue correctamente
+    window.initMap = initMap;
+</script>
+
+<!-- Incluye el script de Google Maps con el callback -->
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQX31CHvoHAv2mgRTHF2C0-Hf5K2uOcg&callback=initMap">
 </script>
 
 <script>
+    // Configuración opcional para el input de imagen
     $("#imagen").fileinput({
         language: "es",
         allowedFileExtensions: ["png", "jpg", "jpeg"],

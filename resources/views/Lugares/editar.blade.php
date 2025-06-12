@@ -118,4 +118,8 @@
         showClose: false
     });
 </script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQX31CHvoHAv2mgRTHF2C0-Hf5K2uOcg&callback=initMap">
+</script>
+
 @endsection
