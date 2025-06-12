@@ -21,11 +21,11 @@
             <div class="mb-3">
                 <label for="categoria" class="form-label"><b>Categoría:</b></label>
                 <select class="form-select" name="categoria" id="categoria" required>
-                    <option value="mirador" {{ $lugar->categoria == 'mirador' ? 'selected' : '' }}>Mirador</option>
-                    <option value="museo" {{ $lugar->categoria == 'museo' ? 'selected' : '' }}>Museo</option>
-                    <option value="parque" {{ $lugar->categoria == 'parque' ? 'selected' : '' }}>Parque</option>
-                    <option value="iglesia" {{ $lugar->categoria == 'iglesia' ? 'selected' : '' }}>Iglesia</option>
-                    <option value="otro" {{ $lugar->categoria == 'otro' ? 'selected' : '' }}>Otro</option>
+                    <option value="Mirador" {{ $lugar->categoria == 'mirador' ? 'selected' : '' }}>Mirador</option>
+                    <option value="Museo" {{ $lugar->categoria == 'museo' ? 'selected' : '' }}>Museo</option>
+                    <option value="Parque" {{ $lugar->categoria == 'parque' ? 'selected' : '' }}>Parque</option>
+                    <option value="Iglesia" {{ $lugar->categoria == 'iglesia' ? 'selected' : '' }}>Iglesia</option>
+                    <option value="Otro" {{ $lugar->categoria == 'otro' ? 'selected' : '' }}>Otro</option>
                 </select>
             </div>
 

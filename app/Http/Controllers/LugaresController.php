@@ -40,6 +40,11 @@ class LugaresController extends Controller
 
     public function store(Request $request)
     {
+        // Subir imagen si viene en el request
+        $imagenUrl = null;
+        if ($request->hasFile('imagen')) {
+            $imagenUrl = $request->file('imagen')->store('imagenes', 'public');
+        }
         //Capturar valores u almacenarlos en la BDD
         $datos=[
             'nombre' => $request->nombre,
@@ -51,7 +56,7 @@ class LugaresController extends Controller
         ];
         Lugares::create($datos);
          // Pasar mensaje a la vista con nombre 'message'
-        return redirect()->route('Lugares.index')->with('message', 'Cliente creado exitosamente');
+        return redirect()->route('Lugares.index')->with('message', 'Lugar creado exitosamente');
     }
 
     public function show($id)

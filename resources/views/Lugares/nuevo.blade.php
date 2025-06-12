@@ -13,8 +13,18 @@
             <label for="descripcion" class="colorf" ><b>Descripción:</b></label>
             <input class="form-control" type="text" name="descripcion" id="descripcion" required><br>
 
-            <label for="categoria" class="colorf" ><b>Categoría:</b></label>
-            <input class="form-control" type="text" name="categoria" id="categoria" required><br>
+            <div class="mb-3">
+                <label for="categoria" class="form-label colorf"><b>Categoría:</b></label>
+                <select class="form-select" name="categoria" id="categoria" required>
+                    <option value="" disabled selected>Seleccione una categoría</option>
+                    <option value="Mirador">Mirador</option>
+                    <option value="Museo">Museo</option>
+                    <option value="Parque">Parque</option>
+                    <option value="Iglesia">Iglesia</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <br>
 
             <label for="imagen" class="colorf" ><b>Imagen:</b></label>
             <input class="form-control" type="file" name="imagen" id="imagen" accept="image/*"><br>
