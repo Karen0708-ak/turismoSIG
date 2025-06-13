@@ -15,12 +15,12 @@
 <!-- jQuery Validation -->
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 
-        <!-- Bootstrap JS (si usas Bootstrap 5 puedes omitir si ya está incluido) -->
+        <!-- Bootstrap JS  -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!--IMportando sweetalert2-->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
        
-        <!-- Google Maps (será cargado en las vistas que lo necesiten) -->
+        <!-- Google Maps  -->
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQX31CHvoHAv2mgRTHF2C0-Hf5K2uOcg&callback=initMap">
         </script>
@@ -50,7 +50,7 @@
       <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
   
-      <!-- Botones de DataTables (misma versión) -->
+      <!-- Botones de DataTables  -->
       <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
       <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
       <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
@@ -143,13 +143,11 @@
                 <div class="carousel-inner position-relative">
                     <div class="carousel-item active">
                         <img src="{{ asset('img/carousel-2.jpg') }}" class="img-fluid w-100" alt="...">
-                        <!-- Filtro oscuro encima de la imagen -->
                         <div class="position-absolute top-0 start-0 w-100 h-100" 
                             style="background: rgba(0,0,0,0.5); pointer-events: none;"></div>
                     </div>
                 </div>
             </div>
-            <!-- Contenido dinámico encima del carrusel -->
              <br><br><br><br><br>
             <div class="position-absolute top-50 start-50 translate-middle w-75 text-center text-white z-3" style=" background-color: rgba(49, 48, 48, 0.7); padding: 20px; border-radius: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
                 @yield('contenido')

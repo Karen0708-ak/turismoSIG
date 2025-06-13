@@ -7,7 +7,6 @@
     <form action="{{ route('Lugares.store') }}" method="post" enctype="multipart/form-data" id="frm_nuevo_lugar">
             @csrf
             <div class="row">
-                <!-- Columna izquierda -->
                 <div class="col-md-5">
                     <div class="mb-3">
                         <label for="nombre" class="form-label"><b>Nombre:</b></label>
@@ -37,10 +36,8 @@
                     </div>
                 </div>
 
-                <!-- Espacio entre columnas -->
                 <div class="col-md-1"></div>
 
-                <!-- Columna derecha -->
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="latitud" class="form-label"><b>Latitud:</b></label>
@@ -59,7 +56,6 @@
                 </div>
             </div>
 
-            <!-- Botones -->
             <div class="mt-4 text-end">
                 <button class="btn btn-success" type="submit">Guardar</button>
                 <a class="btn btn-danger" href="{{ route('Lugares.index') }}">Cancelar</a>
@@ -95,7 +91,6 @@
     window.initMap = initMap;
 </script>
 
-<!-- Incluye el script de Google Maps con el callback -->
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQX31CHvoHAv2mgRTHF2C0-Hf5K2uOcg&callback=initMap">
 </script>
@@ -153,7 +148,6 @@
     });
 </script>
 <script>
-    // Configuración opcional para el input de imagen
     $("#imagen").fileinput({
         language: "es",
         allowedFileExtensions: ["png", "jpg", "jpeg"],

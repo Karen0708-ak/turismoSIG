@@ -39,7 +39,6 @@ class LugaresController extends Controller
 
     public function store(Request $request)
     {
-        // Subir imagen si viene en el request
         $imagenUrl = null;
         if ($request->hasFile('imagen')) {
             $imagenUrl = $request->file('imagen')->store('imagenes', 'public');
@@ -75,9 +74,7 @@ class LugaresController extends Controller
     {
         $lugar = Lugares::findOrFail($id);
 
-        // Subir nueva imagen si viene en el request
         if ($request->hasFile('imagen')) {
-            // Eliminar la imagen anterior si existe
             if ($lugar->imagen && Storage::exists('public/' . $lugar->imagen)) {
                 Storage::delete('public/' . $lugar->imagen);
             }
@@ -86,7 +83,6 @@ class LugaresController extends Controller
             $imagenPath = $request->file('imagen')->store('imagenes', 'public');
             $lugar->imagen = $imagenPath; // <<---- AQUÍ cambió
         }
-        // Datos recibidos para actualizar
         $lugar->nombre = $request->nombre;
         $lugar->descripcion = $request->descripcion;
         $lugar->categoria = $request->categoria;

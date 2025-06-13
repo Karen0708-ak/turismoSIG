@@ -23,7 +23,6 @@
                 lng: parseFloat(lugar.longitud)
             };
 
-            // Aquí corregimos la ruta pública de la imagen
             const imagenUrl = lugar.imagen ? `/storage/${lugar.imagen}` : '/imagen/default.png';
 
             const marcador = new google.maps.Marker({
@@ -62,7 +61,6 @@
 </script>
 
 
-<!-- Cargar Google Maps con callback a initMap -->
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe-d3jhyJysjrOpa1iPvNlJDL6QHQMPfg&callback=initMap">
 </script>
