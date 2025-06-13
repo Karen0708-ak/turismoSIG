@@ -38,12 +38,15 @@
             });
 
             const infoWindow = new google.maps.InfoWindow({
-                content: `
-                    <strong>${lugar.nombre}</strong><br>
-                    ${lugar.descripcion || 'Sin descripción'}<br>
-                    <img src="${imagenUrl}" width="100" height="100">
-                `
-            });
+    content: `
+        <div style="background-color: black; color: white; padding: 5px; border-radius: 5px; max-width: 200px;">
+            <strong>${lugar.nombre}</strong><br>
+            ${lugar.descripcion || 'Sin descripción'}<br>
+            <img src="${imagenUrl}" width="100" height="100" style="margin-top: 5px;">
+        </div>
+    `
+});
+
 
             marcador.addListener("mouseover", function () {
                 infoWindow.open(mapa, marcador);
