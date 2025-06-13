@@ -68,11 +68,12 @@
                     </td>
                     <td class="text-center">
                         <a href="{{ route('Lugares.edit', $lugar->id) }}" class="btn btn-sm btn-primary">Editar</a>
-                        <form action="{{ route('Lugares.destroy', $lugar->id) }}" method="POST" class="d-inline">
+                         <!-- Formulario de eliminación oculto -->
+                         <form id="formEliminar_{{ $lugar->id }}" action="{{ route('Lugares.destroy', $lugar->id) }}" method="POST" class="d-none">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro?')">Eliminar</button>
                         </form>
+                        <button type="button" class="btn btn-sm btn-danger" onclick="confirmarEliminacion({{ $lugar->id }})">Eliminar</button>
                     </td>
                 </tr>
                 @empty
@@ -107,4 +108,24 @@
         });
     });
 </script>
+<script>
+    function confirmarEliminacion(id) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¡Esta acción no se puede deshacer!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById(`formEliminar_${id}`).submit();
+            }
+        });
+    }
+</script>
+
+
 @endsection
