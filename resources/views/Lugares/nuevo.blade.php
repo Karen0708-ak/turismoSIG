@@ -4,24 +4,24 @@
 <div class="container mt-4">
     <div class="bg-black p-4 rounded text-white">
     <h1 class="text-white">Registrar un Nuevo Lugar</h1><br>
-    <form action="{{ route('Lugares.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('Lugares.store') }}" method="post" enctype="multipart/form-data" id="frm_nuevo_lugar">
             @csrf
             <div class="row">
                 <!-- Columna izquierda -->
                 <div class="col-md-5">
                     <div class="mb-3">
                         <label for="nombre" class="form-label"><b>Nombre:</b></label>
-                        <input class="form-control" type="text" name="nombre" id="nombre" required>
+                        <input class="form-control" type="text" name="nombre" id="nombre">
                     </div>
 
                     <div class="mb-3">
                         <label for="descripcion" class="form-label"><b>Descripción:</b></label>
-                        <input class="form-control" type="text" name="descripcion" id="descripcion" required>
+                        <input class="form-control" type="text" name="descripcion" id="descripcion">
                     </div>
 
                     <div class="mb-3">
                         <label for="categoria" class="form-label"><b>Categoría:</b></label>
-                        <select class="form-select" name="categoria" id="categoria" required>
+                        <select class="form-select" name="categoria" id="categoria">
                             <option value="" disabled selected>Seleccione una categoría</option>
                             <option value="Mirador">Mirador</option>
                             <option value="Museo">Museo</option>
@@ -67,8 +67,6 @@
         </form>
     </div>
 </div>
-
-<!-- Scripts -->
 <!-- Scripts -->
 <script type="text/javascript">
     function initMap() {
@@ -101,7 +99,59 @@
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQX31CHvoHAv2mgRTHF2C0-Hf5K2uOcg&callback=initMap">
 </script>
+<script>
+    $("#frm_nuevo_lugar").validate({
+        rules:{
+            "nombre":{
+                required:true,
+                minlength:5,// cuenta caracteres 
+                maxlength:15// caracteres maximos
+            },
+            "descripcion":{
+                required:true,
+                minlength:7,// cuenta caracteres 
+                maxlength:100// caracteres maximos
+            },
+            "categoria":{
+                required:true
+            },
+            "imagen":{
+                required:true
+            },
+            "latitud":{
+                required:true
 
+            },
+            "longitud":{
+                required:true
+            }
+        },
+        messages:{
+            "nombre":{
+                required:"Por favor el Campo es obligatorio",
+                minlength:"Debe ingresar minimo 5 caracteres",// cuenta caracteres 
+                maxlength:"Debe ingresar maxima 15 caracteres"// caracteres maximos
+            },
+            "descripcion":{
+                required:"Por favor el Campo es obligatorio",
+                minlength:"Debe ingresar minimo 7 caracteres",// cuenta caracteres 
+                maxlength:"Debe ingresar maxima 100 caracteres"// caracteres maximos
+            },
+            "categoria":{
+                required:"Por favor el Campo es obligatorio"
+            },
+            "imagen":{
+                required:"Por favor el Campo es obligatorio"
+            },
+            "latitud":{
+                required:"Por favor el Campo es obligatorio",
+            },
+            "longitud":{
+                required:"Por favor el Campo es obligatorio"
+            }
+        }
+    });
+</script>
 <script>
     // Configuración opcional para el input de imagen
     $("#imagen").fileinput({

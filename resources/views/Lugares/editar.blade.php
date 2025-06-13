@@ -108,7 +108,60 @@
         });
     }
 </script>
+<script>
+    $("#frm_nuevo_lugar").validate({
+        rules:{
+            "nombre":{
+                required:true,
+                minlength:5,// cuenta caracteres 
+                maxlength:15// caracteres maximos
+            },
+            "descripcion":{
+                required:true,
+                minlength:7,// cuenta caracteres 
+                maxlength:100// caracteres maximos
+            },
+            "categoria":{
+                required:true
+            },
+            "imagen": {
+                required: function () {
+                    return $('#imagen_existente').val() == "0";
+            },
+            "latitud":{
+                required:true
 
+            },
+            "longitud":{
+                required:true
+            }
+        },
+        messages:{
+            "nombre":{
+                required:"Por favor el Campo es obligatorio",
+                minlength:"Debe ingresar minimo 5 caracteres",// cuenta caracteres 
+                maxlength:"Debe ingresar maxima 15 caracteres"// caracteres maximos
+            },
+            "descripcion":{
+                required:"Por favor el Campo es obligatorio",
+                minlength:"Debe ingresar minimo 7 caracteres",// cuenta caracteres 
+                maxlength:"Debe ingresar maxima 100 caracteres"// caracteres maximos
+            },
+            "categoria":{
+                required:"Por favor el Campo es obligatorio"
+            },
+            "imagen":{
+                required:"Por favor el Campo es obligatorio"
+            },
+            "latitud":{
+                required:"Por favor el Campo es obligatorio",
+            },
+            "longitud":{
+                required:"Por favor el Campo es obligatorio"
+            }
+        }
+    });
+</script>
 <script>
     $("#imagen").fileinput({
         language: "es",

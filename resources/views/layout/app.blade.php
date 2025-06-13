@@ -7,7 +7,16 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
-        
+       
+
+           <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.js" crossorigin="anonymous"></script>
+
+<!-- jQuery Validation -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+        <!-- Bootstrap JS (si usas Bootstrap 5 puedes omitir si ya está incluido) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!--IMportando sweetalert2-->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
        
@@ -28,11 +37,7 @@
         <!-- Libraries Stylesheet -->
         <link href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
         <link href="{{asset('lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-       <!-- jQuery (obligatorio) -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-        <!-- Bootstrap JS (si usas Bootstrap 5 puedes omitir si ya está incluido) -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+       
 
         <!-- FileInput JS y CSS -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/css/fileinput.min.css" rel="stylesheet">
@@ -279,5 +284,14 @@
             confirmButtonText: 'Aceptar'
         });
     </script>
+    <style>
+      .error{
+        color:red;
+        font-weight: bold;
+      }
+      .form-control.error{
+        border: 1px solid red;
+      }
+    </style>
 @endif
 </html>
