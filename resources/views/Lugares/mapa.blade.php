@@ -4,14 +4,14 @@
 <h1>Mapa de Lugares</h1>
 <br><br>
 
-<div id="mapa-lugar" style="border:1px solid black; height:450px; width:80%"></div>
+<div id="mapa-lugar" style="border:1px solid black; height:600px; width:100%"></div>
 
 <script type="text/javascript">
     function initMap() {
         const centro = { lat: -0.9374805, lng: -78.6161327 };
         const mapa = new google.maps.Map(document.getElementById('mapa-lugar'), {
             center: centro,
-            zoom: 15,
+            zoom: 8,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
